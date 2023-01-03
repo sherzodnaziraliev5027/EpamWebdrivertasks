@@ -3,7 +3,7 @@ const homePage = require('../../app/pageobjects/home-page');
 
 describe("Epam task 1",() => {
     // Task 1
-    it.only("Task 1",async() => {
+    it("Task 1",async() => {
         await homePage.open();
         
         await homePage.textArea.setValue("Hello from WebDriver");
