@@ -4,7 +4,6 @@ const claimPage=require("../../app/pageobjects/claim-page");
 describe("Epam task 2",() => {
     it("first test",async() =>{
         await homePage.open();
-
         await homePage.textArea.setValue(`git config --global user.name "New Sheriff in Town"
         git reset $ (git commit-tree HEAD ^ {tree} -m "Legacy code")
         git push origin master --force`);
