@@ -13,17 +13,14 @@ describe("Epam task 2",() => {
         await homePage.makingVisibleSyntaxHighlighting.click()
         await homePage.selectingSyntaxHighlighting.click();
         await homePage.pasteNameTitle.setValue("how to gain dominance among developers");
-
         await browser.pause(1000);
-        homePage.goToClaimPage();
+        await homePage.goToClaimPage();
         await browser.pause(1000);
-
         });
     it('second test',async() =>{    
         await expect(claimPage.getBash).toEqual("Bash");
         await expect(claimPage.getTitle).toEqual("how to gain dominance among developers - Pastebin.com");
         await expect(claimPage.checkCode).toExist()
-
         await browser.pause(5000);
     })        
     });  
