@@ -1,5 +1,5 @@
-const homePage = require("../../app/pageobjects/home-page");
-const claimPage=require("../../app/pageobjects/claim-page");
+const homePage = require("../../app/pageobjectspastebin/home-page");
+const claimPage=require("../../app/pageobjectspastebin/claim-page");
 
 describe("Epam task 2",() => {
     it("first test",async() =>{
@@ -11,15 +11,15 @@ describe("Epam task 2",() => {
         await homePage.selectingPasteExpiration.click();
         await homePage.makingVisibleSyntaxHighlighting.click()
         await homePage.selectingSyntaxHighlighting.click();
+        await homePage.pasteNameTitle.waitForDisplayed({timeout:3000})
         await homePage.pasteNameTitle.setValue("how to gain dominance among developers");
-        await browser.pause(1000);
         await homePage.goToClaimPage();
-        await browser.pause(1000);
         });
-    it('second test',async() =>{    
-        await expect(claimPage.getBash).toEqual("Bash");
-        await expect(claimPage.getTitle).toEqual("how to gain dominance among developers - Pastebin.com");
-        await expect(claimPage.checkCode).toExist()
-        await browser.pause(5000);
+    it('second test',async() =>{
+        await claimPage.waituntilsuccess.waitForDisplayed({ timeout: 3000 })   
+        await expect(await claimPage.getBash).toEqual("Bash");
+        await expect(await claimPage.getTitle).toEqual("how to gain dominance among developers - Pastebin.com");
+        await claimPage.getCode.waitForExist({ timeout: 3000 })   
+        await expect(await claimPage.getCode).toExist()
     })        
-    });  
+    }); 
